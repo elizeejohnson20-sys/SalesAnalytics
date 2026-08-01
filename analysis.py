@@ -81,3 +81,39 @@ discount_profit_correlation = df["Discount"].corr(df["Profit"])
 print("\n--- DISCOUNT VS PROFIT ---")
 print("Correlation between Discount and Profit:",
       round(discount_profit_correlation, 3))
+
+      # REGIONAL ANALYSIS
+
+region_analysis = df.groupby("Region").agg({
+    "Sales": "sum",
+    "Profit": "sum",
+    "Quantity": "sum"
+}).sort_values("Sales", ascending=False)
+
+print("\n--- REGIONAL ANALYSIS ---")
+print(region_analysis.round(2))
+# MONTHLY SALES TREND
+
+df["YearMonth"] = df["Order Date"].dt.to_period("M")
+
+monthly_sales = df.groupby("YearMonth").agg({
+    "Sales": "sum",
+    "Profit": "sum"
+})
+
+print("\n--- MONTHLY SALES TREND ---")
+print(monthly_sales.round(2))
+# MONTHLY SALES CHART
+
+import matplotlib.pyplot as plt
+
+monthly_sales["Sales"].plot(kind="line", figsize=(12, 6))
+
+plt.title("Monthly Sales Trend")
+plt.xlabel("Month")
+plt.ylabel("Sales")
+plt.xticks(rotation=45)
+plt.tight_layout()
+
+plt.savefig("images/monthly_sales_trend.png")
+plt.show()
