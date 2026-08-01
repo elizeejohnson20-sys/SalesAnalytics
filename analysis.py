@@ -204,3 +204,12 @@ plt.close()
 
 
 print("\nVISUALIZATIONS CREATED SUCCESSFULLY")
+
+print("\n========== KEY BUSINESS INSIGHTS ==========")
+
+print("1. Technology generated the highest total sales.")
+print("2. Furniture had significantly lower profit compared with its sales.")
+print("3. Tables were a major loss-making sub-category.")
+print("4. Higher discounts showed a negative relationship with profit.")
+print("5. The West region generated the highest sales.")
+print("6. Sales generally increased over the years, with strong seasonal peaks.")
