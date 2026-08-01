@@ -8,6 +8,8 @@ df = pd.read_csv(
     parse_dates=["Order Date", "Ship Date"]
 )
 
+df.to_csv("data/Superstore_Cleaned.csv", index=False)
+
 # Display the first 5 rows
 print("FIRST 5 ROWS:")
 print(df.head())
@@ -117,3 +119,32 @@ plt.tight_layout()
 
 plt.savefig("images/monthly_sales_trend.png")
 plt.show()
+# TOP 10 PRODUCTS BY PROFIT
+
+top_products = df.groupby("Product Name").agg(
+    Sales=("Sales", "sum"),
+    Profit=("Profit", "sum")
+).sort_values("Profit", ascending=False).head(10)
+
+print("\n--- TOP 10 PRODUCTS BY PROFIT ---")
+print(top_products.round(2).to_string())
+# TOP 10 LOSS-MAKING PRODUCTS
+
+loss_products = df.groupby("Product Name").agg(
+    Sales=("Sales", "sum"),
+    Profit=("Profit", "sum")
+).sort_values("Profit").head(10)
+
+print("\n--- TOP 10 LOSS-MAKING PRODUCTS ---")
+print(loss_products.round(2).to_string())
+
+# CUSTOMER ANALYSIS
+
+customer_analysis = df.groupby("Customer Name").agg(
+    Sales=("Sales", "sum"),
+    Profit=("Profit", "sum"),
+    Orders=("Order ID", "nunique")
+).sort_values("Sales", ascending=False).head(10)
+
+print("\n--- TOP 10 CUSTOMERS BY SALES ---")
+print(customer_analysis.round(2).to_string())
