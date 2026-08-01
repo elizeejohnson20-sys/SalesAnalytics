@@ -9,7 +9,6 @@ df = pd.read_csv(
 )
 
 df.to_csv("data/Superstore_Cleaned.csv", index=False)
-
 # Display the first 5 rows
 print("FIRST 5 ROWS:")
 print(df.head())
@@ -148,3 +147,60 @@ customer_analysis = df.groupby("Customer Name").agg(
 
 print("\n--- TOP 10 CUSTOMERS BY SALES ---")
 print(customer_analysis.round(2).to_string())
+
+import matplotlib.pyplot as plt
+
+# 1. Sales by Category
+category_sales = df.groupby("Category")["Sales"].sum()
+
+plt.figure(figsize=(8, 5))
+category_sales.plot(kind="bar")
+plt.title("Sales by Category")
+plt.xlabel("Category")
+plt.ylabel("Sales")
+plt.tight_layout()
+plt.savefig("visuals/sales_by_category.png")
+plt.close()
+
+
+# 2. Profit by Category
+category_profit = df.groupby("Category")["Profit"].sum()
+
+plt.figure(figsize=(8, 5))
+category_profit.plot(kind="bar")
+plt.title("Profit by Category")
+plt.xlabel("Category")
+plt.ylabel("Profit")
+plt.tight_layout()
+plt.savefig("visuals/profit_by_category.png")
+plt.close()
+
+
+# 3. Monthly Sales Trend
+monthly_sales = df.groupby("YearMonth")["Sales"].sum()
+
+plt.figure(figsize=(12, 5))
+monthly_sales.plot()
+plt.title("Monthly Sales Trend")
+plt.xlabel("Month")
+plt.ylabel("Sales")
+plt.xticks(rotation=45)
+plt.tight_layout()
+plt.savefig("visuals/monthly_sales_trend.png")
+plt.close()
+
+
+# 4. Regional Sales
+region_sales = df.groupby("Region")["Sales"].sum()
+
+plt.figure(figsize=(8, 5))
+region_sales.plot(kind="bar")
+plt.title("Sales by Region")
+plt.xlabel("Region")
+plt.ylabel("Sales")
+plt.tight_layout()
+plt.savefig("visuals/sales_by_region.png")
+plt.close()
+
+
+print("\nVISUALIZATIONS CREATED SUCCESSFULLY")
