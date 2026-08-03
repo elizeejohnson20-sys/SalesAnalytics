@@ -1,89 +1,72 @@
-# Sales Analytics Project
+# Sales Analytics Dashboard
 
-## Overview
+A data analytics project built using Python, Pandas, MySQL, and Power BI to analyze sales performance, profitability, customer segments, product performance, and regional trends using the Superstore dataset.
 
-Sales Analytics is a data analytics project built to analyze sales performance, profitability, customer segments, product performance, regional trends, and discount impact using a real-world Superstore dataset.
+## Project Overview
 
-The project combines Python, Pandas, Matplotlib, MySQL, and SQL to transform raw sales data into useful business insights.
+This project covers the complete analytics workflow:
 
-## Objectives
-
-- Analyze overall sales and profit performance
-- Identify profitable and loss-making product categories
-- Analyze regional sales performance
-- Study customer segments and order value
-- Examine the relationship between discounts and profit
-- Identify monthly sales and profit trends
-- Use SQL for business-oriented data analysis
-- Create visualizations to communicate findings
+- Data cleaning and preparation using Python and Pandas
+- Exploratory data analysis
+- Business analysis using sales, profit, quantity, and discount metrics
+- MySQL database integration
+- Interactive Power BI dashboard
+- Business insights and visual reporting
 
 ## Technologies Used
 
 - Python
 - Pandas
-- NumPy
-- Matplotlib
 - MySQL
-- SQL
-- Git
-- GitHub
+- Power BI
+- Git & GitHub
 
-## Project Workflow
+## Key Metrics
 
-Raw CSV Dataset  
-↓  
-Data Cleaning & Preparation  
-↓  
-Exploratory Data Analysis using Python  
-↓  
-MySQL Data Storage  
-↓  
-SQL Business Analysis  
-↓  
-Data Visualization  
-↓  
-Business Insights
+- Total Sales: 2,297,200.86
+- Total Profit: 286,397.02
+- Total Quantity: 37,873
+- Total Orders: 5,009
+- Average Order Value: 458.61
 
-## Key Analysis
+## Key Insights
 
-The project includes:
+- Technology generated the highest sales and had a strong profit margin.
+- Furniture generated substantial sales but had a significantly lower profit margin.
+- The West region recorded the highest sales among all regions.
+- Higher discounts showed a negative relationship with profit.
+- Canon imageCLASS 2200 Advanced Copier was the highest-profit product.
 
-- Overall business metrics
-- Category analysis
-- Sub-category analysis
-- Regional analysis
-- Monthly sales trends
-- Discount vs. profit analysis
-- Top profitable products
-- Loss-making products
-- Customer segment analysis
-- Region and category comparison
-- Profit margin analysis
+## Power BI Dashboard
 
-## Visualizations
+The dashboard includes:
 
-The project generates charts for:
-
+- KPI cards
 - Sales by Category
 - Profit by Category
-- Monthly Sales Trend
 - Sales by Region
+- Sales Trend Over Time
+- Top 10 Products by Profit
+- Average Discount vs Profit
+- Region, Category, and Segment slicers
+
+![Sales Analytics Dashboard](visuals/sales-analytics-dashboard.png)
 
 ## Project Structure
 
-```text
 SalesAnalytics/
-│
-├── data/
-│   └── Sample - Superstore.csv
-│
-├── visuals/
-│   ├── sales_by_category.png
-│   ├── profit_by_category.png
-│   ├── monthly_sales_trend.png
-│   └── sales_by_region.png
-│
-├── analysis.py
-├── import_mysql.py
-├── README.md
-└── .gitignore
+
+├── data/                  # Dataset
+├── images/                # Analysis visuals
+├── powerbi/               # Power BI resources
+├── sql/                   # SQL scripts
+├── visuals/               # Dashboard and analysis screenshots
+├── analysis.py            # Python data analysis
+├── import_mysql.py        # MySQL data import
+├── requirements.txt       # Python dependencies
+├── .gitignore             # Git ignored files
+└── README.md              # Project documentation
+
+## Outcome
+
+This project demonstrates practical skills in data cleaning, exploratory analysis, SQL database handling, business analysis, data visualization, and dashboard development.
