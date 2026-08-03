@@ -42,7 +42,7 @@ SalesAnalytics/
 ├── .gitignore
 └── README.md
 
-## Author
+Author
 
 Elizabeth Johnson
 
